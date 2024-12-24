@@ -67,7 +67,8 @@ public class Sobrevivente extends Pessoa {
     public void setStatus(String status) {
         while (true) {
             if (!statusValidos.contains(status)) {
-                System.out.println("Status inválido! Selecinoe um dos status a seguir: " + getStatusValidos());;
+                System.out.println("Status inválido! Selecinoe um dos status a seguir: " + getStatusValidos());
+                ;
                 status = s.next();
                 continue;
             }

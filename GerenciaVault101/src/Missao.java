@@ -9,7 +9,6 @@ public class Missao {
     private String objetivo;
     private String local;
     private String status;
-    private ArrayList<String> sobreviventes = new ArrayList<String>();
     private ArrayList<Recurso> recursosColetados;
     private final Set<String> statusValidos = Set.of("Em andamento", "Sucesso", "Fracasso");
     private final Set<String> objetivosValidos = Set.of("Coletar suprimentos", "Resgatar sobreviventes", "Procurar informações");
@@ -18,12 +17,11 @@ public class Missao {
             "Sucesso", "Concluída com êxito",
             "Fracasso", "Falhou por algum motivo, como falta de recursos ou mortes");
 
-    public Missao(String nome, String objetivo, String identificadorSobrevivente,String local, String status) {
+    public Missao(String nome, String objetivo, String local, String status) {
         this.setNome(nome);
         this.setObjetivo(objetivo);
         this.setLocal(local);
         this.setStatus(status);
-        this.setSobreviventes(identificadorSobrevivente);
         recursosColetados = new ArrayList<Recurso>();
     }
 
@@ -81,6 +79,7 @@ public class Missao {
         return this.status;
     }
 
+
     public Set<String> getObjetivosValidos() {
         return this.objetivosValidos;
     }
@@ -89,24 +88,24 @@ public class Missao {
         return this.statusValidos;
     }
 
-    public void setSobreviventes(String identificadorSobrevivente) {
-        if (Sobrevivente.getIdentificador().equals(identificadorSobrevivente)) {
-            this.sobreviventes.add(identificadorSobrevivente);
-        }
-    }
-    // tornei static o identificador de pessoa
-    //Testar esses dois métodos
-    public void removeSobreviventes(String identificadorSobrevivente) {
-        if (Sobrevivente.getIdentificador().equals(identificadorSobrevivente)) {
-            this.sobreviventes.remove(identificadorSobrevivente);
-        }
-    }
-
-    public ArrayList<String> getSobreviventes() {
-        return this.sobreviventes;
-    }
-
     public ArrayList<Recurso> getRecursosColetados() {
         return this.recursosColetados;
+    }
+
+    public void addRecursos(Recurso recurso) {
+        this.recursosColetados.add(recurso);
+    }
+
+    public void removeRecursos(Recurso recurso) {
+        this.recursosColetados.remove(recurso);
+    }
+
+    @Override
+    public String toString() {
+        return "Nome da missão: " + getNome() + "\n" +
+                "Objetivo da missão: " + getObjetivo() + "\n" +
+                "Local da missão: " + getLocal() + "\n" +
+                "Status da missão: " + getStatus() + "\n" +
+                "Recursos coletados durante a missão: " + getRecursosColetados();
     }
 }

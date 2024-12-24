@@ -1,7 +1,7 @@
 import java.util.UUID;
 
-public class Pessoa {
-    protected static String identificador = "";
+public abstract class Pessoa {
+    private static String identificador = "";
     protected String nome;
     protected int idade;
 

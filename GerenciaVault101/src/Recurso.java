@@ -23,7 +23,7 @@ public class Recurso {
         String texto = "";
         while (true) {
             if (!nomeValidos.contains(nome)) {
-                System.out.println("Habilidade Inválida! Selecione uma das habilidades a seguir: " + nomeValidos);
+                System.out.println("Recurso Inválida! Selecione uma dos recursos a seguir: " + nomeValidos);
                 nome = s.next();
                 continue;
             }
@@ -70,7 +70,7 @@ public class Recurso {
 
     @Override
     public String toString() {
-        return  "Identificador do recurso: " + getIdentificador() + "\n" +
+        return "Identificador do recurso: " + getIdentificador() + "\n" +
                 "Nome do recurso: " + getNome() + "\n" +
                 "Quantidade de recurso: " + getQuantidade() + "\n" +
                 retornaDescricaoRecurso(nome);
