@@ -15,7 +15,7 @@ public class Recurso {
 
     public Recurso(String nome, int quantidade) {
         this.identificador = UUID.randomUUID().toString();
-        this.setNome(nome);
+        this.setNome(nome); 
         this.setQuantidade(quantidade);
     }
 
